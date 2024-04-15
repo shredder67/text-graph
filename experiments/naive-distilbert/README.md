@@ -2,4 +2,4 @@
 
 <br>
 
-- [Models weights]([https://github.com/huggingface/transformers](https://drive.google.com/drive/folders/1s87g_3wwcu7na00Z0t43AyyqFPyfHfny?usp=sharing))
+[Models weights](https://drive.google.com/drive/folders/1s87g_3wwcu7na00Z0t43AyyqFPyfHfny?usp=sharing){:target="_blank"}
