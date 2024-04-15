@@ -1,1 +1,1 @@
-
+DistilBERT is a smaller and faster variant of the BERT (Bidirectional Encoder Representations from Transformers) model introduced by Hugging Face in 2019. It is designed to be more lightweight and efficient while retaining much of the performance of the original BERT model.
