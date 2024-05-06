@@ -32,11 +32,16 @@ During training and evaluation of our models we use metrics same as ones present
 
 ## Experiments
 
-The model employed is [all-MiniLM](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), which is a fine-tuned and diminished version of [MiniLM](https://huggingface.co/microsoft/MiniLM-L12-H384-uncased).
+We propose implementing the (all-Mpnet-base)[https://huggingface.co/sentence-transformers/all-mpnet-base-v2] model, training it on question-answer pairs with incorporated linearized knowledge graphs. Additionally, we utilize the LoRA implementation from the \texttt{peft} library and apply oversampling techniques to address imbalance in the training dataset.
 
-All fine-tuning experiments have been conducted using LoRA implementation from the $\texttt{peft}$ library. LoRA parameters are as follows: lora rank of $16$, lora alpha of $32$, lora dropout of $0.1$. The target modules of LoRA are query and value weight matrices. 
+\vspace{0.2cm}
 
-Our default training procedure is conducted for $50$ epochs with best checkpoint saving, Binary Cross-entropy loss, batch size of $64$, sequence length of $256$, AdamW optimizer, learning rate of $3 \cdot 10^{-4}$, default weight decay of $10^{-2}$. Additionally, we oversample positive examples proportionally to their disbalance in dataset, which is approximately 10 to 1. 
+Thus, the \textbf{main contribution of the following work} are as follows:
+
+\begin{itemize}
+    \item We propose a method of combining textual and graph information. Adding linearized sub-graph directly into main question prompt with additional separate tokens allows to improve the performance of models working with each modality separately.
+    \item We conducted a thorough study of LLM backbones and wide hyper-parameter search. For efficient training we provided fine-tuning with LoRA.
+\end{itemize}
 
 <br>
 
