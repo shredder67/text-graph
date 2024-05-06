@@ -4,13 +4,16 @@ Our approach ultimately relies on tuning of LLM for binary classification task w
 
 According to the nature of task it is obvious that amongst candidate answers only one of them is correct, however the amount of the candidate answers for single question is not known beforehand. During inference we utilize knowledge about only one candidate answer being right and select the most probable answer to be correct according to model scores. This naturally allows to use model trained for classification target for ranking top-1 candidate answer.
 
+![image](https://github.com/shredder67/text-graph/assets/78615928/c40881da-4da4-4e8d-ac7d-d73c3b8abd99)
+
+
 <br>
 
 ---
 
 ### Dataset
 
-For our research, we utilized the $\href{https://github.com/uhh-lt/TextGraphs17-shared-task/tree/main/data/tsv}{TextGraphs17-shared-task}$ dataset, consisting of 37,672 question-answer pairs annotated with Wikidata entities. This dataset includes 10 different types of data, notably entities from Wikidata mentioned in both the answer and the corresponding question, as well as a shortest-path graph for each $\texttt{<question,} \texttt{candidate} \texttt{answer>}$ pair.
+For our research, we utilized the [https://github.com/uhh-lt/TextGraphs17-shared-task/tree/main/data/tsv](TextGraphs17-shared-task) dataset, consisting of 37,672 question-answer pairs annotated with Wikidata entities. This dataset includes 10 different types of data, notably entities from Wikidata mentioned in both the answer and the corresponding question, as well as a shortest-path graph for each $\texttt{<question,} \texttt{candidate} \texttt{answer>}$ pair.
 
 <br>
 
