@@ -36,6 +36,6 @@ During training and evaluation of our models we use metrics same as ones present
 
 ---
 
-- что сказал слепой человек, когда зашел в бар?
+- What did the blind man say when he walked into a bar?
 
-- всем привет, кого не видел
+- Hello everyone, long time no see!
