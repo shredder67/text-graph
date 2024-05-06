@@ -4,7 +4,9 @@ Our approach ultimately relies on tuning of LLM for binary classification task w
 
 According to the nature of task it is obvious that amongst candidate answers only one of them is correct, however the amount of the candidate answers for single question is not known beforehand. During inference we utilize knowledge about only one candidate answer being right and select the most probable answer to be correct according to model scores. This naturally allows to use model trained for classification target for ranking top-1 candidate answer.
 
+<br>
 
+---
 
 ### Dataset
 
