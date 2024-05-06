@@ -30,10 +30,6 @@ During training and evaluation of our models we use metrics same as ones present
 
 <br>
 
-<br>
-
-<br>
-
 ---
 
 - What did the blind man say when he walked into a bar?
