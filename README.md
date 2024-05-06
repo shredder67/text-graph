@@ -32,7 +32,7 @@ During training and evaluation of our models we use metrics same as ones present
 
 ## Experiments
 
-We propose implementing the (all-Mpnet-base)[https://huggingface.co/sentence-transformers/all-mpnet-base-v2] model, training it on question-answer pairs with incorporated linearized knowledge graphs. Additionally, we utilize the LoRA implementation from the \texttt{peft} library and apply oversampling techniques to address imbalance in the training dataset.
+We propose implementing the [all-Mpnet-base](https://huggingface.co/sentence-transformers/all-mpnet-base-v2) model, training it on question-answer pairs with incorporated linearized knowledge graphs. Additionally, we utilize the LoRA implementation from the \texttt{peft} library and apply oversampling techniques to address imbalance in the training dataset.
 
 \vspace{0.2cm}
 
