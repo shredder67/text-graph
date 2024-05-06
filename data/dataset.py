@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import random
 
-from .graph_utils import linearize_graph
+from .graph_utils import *
     
 class TextGraphDataset(Dataset):
     def __init__(
@@ -12,8 +12,10 @@ class TextGraphDataset(Dataset):
         max_length: int, 
         train_path: str,
         test_path: str,
-        split: str='train',
-        include_graph: bool=False
+        split: str,
+        df_split: pd.DataFrame,
+        include_graph: bool=False,
+        is_T5: bool=False,
     ):
         """
         include_graph
@@ -25,10 +27,9 @@ class TextGraphDataset(Dataset):
         self.max_length = max_length
         self.split = split
         self.include_graph = include_graph
+        self.is_T5 = is_T5
         if split in ['train', 'val', 'test']:
-            df = pd.read_csv(train_path, sep='\t')
-            df["label"] = df["correct"].astype(np.float32)
-            self.df = self._split_train_dev_test(df, split)
+            self.df = df_split
         elif split == 'full': # use this to use all data for training (before submit)
             self.df = pd.read_csv(train_path, sep='\t')
             self.df["label"] = self.df["correct"].astype(np.float32)
@@ -51,11 +52,17 @@ class TextGraphDataset(Dataset):
         a_entities = self.a_entities[idx]
         
         if self.include_graph:
-            a_entities = self.graphs[idx]
+            if self.is_T5:
+                a_entities = self.graphs[idx] + ' ' + a_entities
+                tokenizer_in_text = 'predict [SEP] ' + question + '[SEP]' + a_entities    
+            else:
+                a_entities = self.graphs[idx]
+                tokenizer_in_text = q_entities + ' ' + question + '[SEP]' + a_entities
+        else: 
+                tokenizer_in_text = q_entities + ' ' + question + '[SEP]' + a_entities
             
-         
         tokenizer_out = self.tokenizer.encode_plus(
-                text=q_entities + ' ' + question + '[SEP]' + a_entities,
+                text=tokenizer_in_text,
                 max_length=self.max_length,
                 padding="max_length",
                 truncation="only_first",
@@ -86,29 +93,8 @@ class TextGraphDataset(Dataset):
             self.labels = self.df["label"].to_list()
         if self.include_graph:
             self.df["graph"] = self.df["graph"].apply(eval)
-            self.graphs = self.df["graph"].apply(linearize_graph).to_list()
+            if self.is_T5:
+                self.graphs = self.df["graph"].apply(linearize_graph_T5).to_list()
+            else:
+                self.graphs = self.df["graph"].apply(linearize_graph).to_list()
             
-    def _split_train_dev_test(self, df, split='train'):
-        all_questions = list(df["question"].unique())
-        num_questions = len(all_questions)
-        random.shuffle(all_questions)
-
-        train_dev_ratio = 0.8
-        train_ratio = 0.9
-        num_train_dev_questions = int(num_questions * train_dev_ratio)
-        train_dev_questions = all_questions[:num_train_dev_questions]
-        test_questions = set(all_questions[num_train_dev_questions:])
-        num_train_questions = int(len(train_dev_questions) * train_ratio)
-        train_questions = set(train_dev_questions[:num_train_questions])
-        dev_questions = set(train_dev_questions[num_train_questions:])
-
-        train_df = df[df["question"].isin(train_questions)]
-        dev_df = df[df["question"].isin(dev_questions)]
-        test_df = df[df["question"].isin(test_questions)]
-
-        if split == 'train':
-            return train_df
-        elif split =='val':
-            return dev_df
-        else:
-            return test_df
