@@ -28,6 +28,18 @@ During training and evaluation of our models we use metrics same as ones present
 
 <br>
 
+---
+
+## Experiments
+
+The model employed is [all-MiniLM](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), which is a fine-tuned and diminished version of [MiniLM](https://huggingface.co/microsoft/MiniLM-L12-H384-uncased).
+
+All fine-tuning experiments have been conducted using LoRA implementation from the $\texttt{peft}$ library. LoRA parameters are as follows: lora rank of $16$, lora alpha of $32$, lora dropout of $0.1$. The target modules of LoRA are query and value weight matrices. 
+
+Our default training procedure is conducted for $50$ epochs with best checkpoint saving, Binary Cross-entropy loss, batch size of $64$, sequence length of $256$, AdamW optimizer, learning rate of $3 \cdot 10^{-4}$, default weight decay of $10^{-2}$. Additionally, we oversample positive examples proportionally to their disbalance in dataset, which is approximately 10 to 1. 
+
+<br>
+
 <br>
 
 ---
