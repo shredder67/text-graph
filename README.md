@@ -13,7 +13,7 @@ According to the nature of task it is obvious that amongst candidate answers onl
 
 ### Dataset
 
-For our research, we utilized the (TextGraphs17-shared-task)[https://github.com/uhh-lt/TextGraphs17-shared-task/tree/main/data/tsv] dataset, consisting of 37,672 question-answer pairs annotated with Wikidata entities. This dataset includes 10 different types of data, notably entities from Wikidata mentioned in both the answer and the corresponding question, as well as a shortest-path graph for each $\texttt{<question,} \texttt{candidate} \texttt{answer>}$ pair.
+For our research, we utilized the [TextGraphs17-shared-task](https://github.com/uhh-lt/TextGraphs17-shared-task/tree/main/data/tsv) dataset, consisting of 37,672 question-answer pairs annotated with Wikidata entities. This dataset includes 10 different types of data, notably entities from Wikidata mentioned in both the answer and the corresponding question, as well as a shortest-path graph for each $\texttt{<question,} \texttt{candidate} \texttt{answer>}$ pair.
 
 <br>
 
