@@ -47,3 +47,13 @@ Our default training procedure is conducted for $50$ epochs with best checkpoint
 - What did the blind man say when he walked into a bar?
 
 - Hello everyone, long time no see!
+
+<br>
+
+Bert's mom is packing him off to school:
+
+- She puts graphs, texts, and "lora" into the bag.
+- Mom, why the heck??
+- Well, you take the graphs, cut them up, put them on the text, and eat them.
+- And the "lora"?
+- Here it is!
