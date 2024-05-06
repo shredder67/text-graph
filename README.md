@@ -36,12 +36,10 @@ We propose implementing the (all-Mpnet-base)[https://huggingface.co/sentence-tra
 
 \vspace{0.2cm}
 
-Thus, the \textbf{main contribution of the following work} are as follows:
+Thus, the $\textbf{main contribution of the following work}$ are as follows:
 
-\begin{itemize}
-    \item We propose a method of combining textual and graph information. Adding linearized sub-graph directly into main question prompt with additional separate tokens allows to improve the performance of models working with each modality separately.
-    \item We conducted a thorough study of LLM backbones and wide hyper-parameter search. For efficient training we provided fine-tuning with LoRA.
-\end{itemize}
+- We propose a method of combining textual and graph information. Adding linearized sub-graph directly into main question prompt with additional separate tokens allows to improve the performance of models working with each modality separately.
+- We conducted a thorough study of LLM backbones and wide hyper-parameter search. For efficient training we provided fine-tuning with LoRA.
 
 <br>
 
