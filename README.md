@@ -1,3 +1,5 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1LVjpGsUBHMJssQAs10e7OZsKDfM4wAzU#scrollTo=BB4hxTlajkU1)
+
 ## Method
 
 Our approach ultimately relies on tuning of LLM for binary classification task while also including information from wiki-data graph domain in LLM pipeline. The representations for target prediction on question-answer pair is acquired by addressing the last hidden layer representation of the $\texttt{[CLS]}$ token of the model. 
